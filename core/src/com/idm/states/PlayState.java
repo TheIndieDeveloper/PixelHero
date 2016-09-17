@@ -4,10 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.idm.game.Main;
+import com.idm.universe.Universe;
 
 public class PlayState implements Screen {
 
 	public Main main;
+	public Universe universe;
 
 	public PlayState(Main main) {
 		this.main = main;
@@ -15,15 +17,16 @@ public class PlayState implements Screen {
 
 	@Override
 	public void show() {
-		//Just Added Some New Code For Example
-		//just a new branch
-		//just add some more random stuff!
+		universe = new Universe(2,2);
+		universe.init();
 	}
 
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		
+		universe.render(delta);
 	}
 
 	@Override
@@ -48,7 +51,7 @@ public class PlayState implements Screen {
 
 	@Override
 	public void dispose() {
-
+		universe.dispose();
 	}
 
 }
