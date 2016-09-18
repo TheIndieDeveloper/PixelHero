@@ -2,6 +2,7 @@ package com.idm.level;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
 public class Chunk {
@@ -22,14 +23,14 @@ public class Chunk {
 		
 		for(int x = 0; x < chunkSize;x++){
 			for(int y = 0; y < chunkSize;y++){
-				chunk_blocks.add(new Block(BlockType.GRASS_ONE));
+				chunk_blocks.add(new Block((int)chunk_location.x + x * 16, (int) chunk_location.y + y * 16, BlockType.GRASS_ONE));
 			}
 		}
 	}
 
-	public void render(float delta) {
+	public void render(SpriteBatch batch, float delta) {
 		for(Block block : chunk_blocks){
-			block.render(delta);
+			block.render(batch, delta);
 		}
 	}
 
@@ -38,5 +39,9 @@ public class Chunk {
 			block.dispose();
 		}
 	}
-
+	
+	public CopyOnWriteArrayList<Block> getChunkblocks() {
+		return chunk_blocks;
+	}
+	
 }

@@ -17,21 +17,20 @@ public class PlayState implements Screen {
 
 	@Override
 	public void show() {
-		universe = new Universe(2,2);
+		universe = new Universe(3,2);
 		universe.init();
 	}
 
 	@Override
 	public void render(float delta) {
-		Gdx.gl.glClearColor(0, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
 		universe.render(delta);
 	}
 
 	@Override
 	public void resize(int width, int height) {
-
+		universe.getPlayer().getCamera().viewportWidth = width;
+		universe.getPlayer().getCamera().viewportHeight = height;
+		universe.getPlayer().getCamera().update();
 	}
 
 	@Override
