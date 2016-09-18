@@ -3,6 +3,7 @@ package com.idm.level;
 import java.util.Vector;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
 public class ChunkLoader {
@@ -20,7 +21,7 @@ public class ChunkLoader {
 		
 		for(int x = 0; x < uni_w;x++){
 			for(int y = 0; y < uni_h;y++){
-				chunks.add(new Chunk(x * 32, y * 32));
+				chunks.add(new Chunk(x * 32 * 8, y * 32 * 8));
 			}
 		}
 		
@@ -30,9 +31,9 @@ public class ChunkLoader {
 		}
 	}
 
-	public void render(float delta) {
+	public void render(SpriteBatch batch, float delta) {
 		for(Chunk chunk : chunks){
-			chunk.render(delta);
+			chunk.render(batch, delta);
 		}
 	}
 
@@ -40,6 +41,10 @@ public class ChunkLoader {
 		for(Chunk chunk : chunks){
 			chunk.dispose();
 		}
+	}
+	
+	public CopyOnWriteArrayList<Chunk> getChunks() {
+		return chunks;
 	}
 
 }
