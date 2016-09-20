@@ -1,8 +1,6 @@
 package com.idm.states;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.GL20;
 import com.idm.game.Main;
 import com.idm.universe.Universe;
 
@@ -17,7 +15,7 @@ public class PlayState implements Screen {
 
 	@Override
 	public void show() {
-		universe = new Universe(3,2);
+		universe = new Universe(5, 5);
 		universe.init();
 	}
 

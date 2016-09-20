@@ -24,9 +24,11 @@ public class Universe {
 	}
 
 	public void init() {
+		
+		
 		player = new Player();
 		player.init();
-		
+
 		batch = new SpriteBatch();
 		
 		world = new World(new Vector2(0, -98f), true);
@@ -49,6 +51,7 @@ public class Universe {
 		batch.begin();
 		
 		loader.render(batch, delta);
+		player.render(batch, delta);
 		
 		batch.end();
 		
