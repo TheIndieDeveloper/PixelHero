@@ -20,18 +20,12 @@ public class Universe {
 	private SpriteBatch batch;
 	private Player player;
 	
-	private Assets assets;
-	Sprite box1;
-	
 	public Universe(int uni_width, int uni_height) {
 		this.uni_width = uni_width;
 		this.uni_height = uni_height;
 	}
 
 	public void init() {
-		assets = new Assets();
-		assets.init();
-		box1 = new Sprite(Assets.getSheet_one().getTile(1, 0));
 		
 		player = new Player();
 		player.init();
@@ -59,8 +53,7 @@ public class Universe {
 		
 		loader.render(batch, delta);
 		player.render(batch, delta);
-		box1.draw(batch);
-		
+
 		batch.end();
 		
 	}
