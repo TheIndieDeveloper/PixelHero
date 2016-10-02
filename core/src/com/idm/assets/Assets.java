@@ -4,6 +4,7 @@ public class Assets {
 
 	
 	public static SpriteSheet sheetOne;
+	public static SpriteSheet core_sheet;
 	
 	public Assets() {
 
@@ -11,6 +12,7 @@ public class Assets {
 	
 	public void init(){
 		sheetOne = new SpriteSheet("SpriteSheet.png");
+		core_sheet = new SpriteSheet("game_sheet.png");
 	}
 	
 	
@@ -19,4 +21,8 @@ public class Assets {
 		return sheetOne;
 	}
 
+	public static SpriteSheet getCoreSheet() {
+		return core_sheet;
+	}
+	
 }
