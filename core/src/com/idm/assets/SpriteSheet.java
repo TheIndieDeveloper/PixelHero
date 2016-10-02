@@ -16,5 +16,9 @@ public class SpriteSheet {
 	public TextureRegion getTile(int x, int y){
 		return new TextureRegion(spriteTexture, x*16, y*16, 16, 16);
 	}
+	
+	public TextureRegion getTile(int x, int y, int width, int height){
+		return new TextureRegion(spriteTexture, x, y, width, height);
+	}
 
 }

@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.idm.assets.Assets;
+import com.idm.core.GameCore;
 import com.idm.level.ChunkLoader;
 
 public class Universe {
@@ -19,6 +20,8 @@ public class Universe {
 	private SpriteBatch batch;
 	private Player player;
 	private Assets assets;
+	
+	private GameCore core;
 	
 	
 	public Universe(int uni_width, int uni_height) {
@@ -42,6 +45,8 @@ public class Universe {
 		world = new World(new Vector2(0, -98f), true);
 		loader = new ChunkLoader(uni_width, uni_height);
 		loader.init();
+		
+		core = new GameCore(20,20);
 	}
 
 	private void tick() {
@@ -61,6 +66,8 @@ public class Universe {
 		loader.render(batch, delta);
 		player.render(batch, delta);
 		sprite.draw(batch);
+		
+		core.render(batch);
 		
 		batch.end();
 		
